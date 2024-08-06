@@ -1,0 +1,13 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float a, b;
+    cin >> a >> b;
+    std::cout << a + b << std::endl;
+}
+
+a와 b값을 입력받아 사칙연산을 한다.
+이때 다른 연산값을 출력하고 싶다면 "+" 부분을 바꾸면된다.  
