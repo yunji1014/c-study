@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+    cin >> a >> b >> c;
+
+    int A = a * 60 + b + c;
+        int B = A/60;
+        int C = A%60;
+
+    if( B >= 24 ){
+        int D = B - 24;
+        std::cout << D << " " << C << std::endl;
+        
+    }
+    else if( 0 < a < 24){
+        std::cout << B << " " << C << std::endl;
+    }
+}
