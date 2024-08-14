@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+
+    if(a == 0 && b < 45){
+        int C = b + 15;
+        int D = 23;
+        std::cout << D << " " << C << std::endl;
+    }
+    else if( 0 < a < 24 ){
+        int A = ((a * 60 + b) - 45)/60;
+        int B = ((a * 60 + b)-45)%60;
+
+        std::cout << A << " " << B << std::endl;
+        
+    }
+}
+
+c++은 순차적으로 코딩이완료되기 때문에 a == 0 && b < 45문을 앞으로 가져와야한다. 0 < a < 24아래 절이 먼저 온다면 a=0일때 입력값이 제대로 계산되지 않는다. 
