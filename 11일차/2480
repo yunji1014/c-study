@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+    cin >> a >> b >> c;
+
+    if(a==b){
+        if(b==c || a==c){
+            int A = 10000+a*1000;
+            cout << A;
+        }else{
+            int B = 1000+a*100;
+            cout << B;
+        }
+    }
+    else if(b==c){
+        int C = 1000+b*100;
+        cout << C;
+    }
+    else if(a==c){
+        int D = 1000+c*100;
+        cout << D;
+    }
+    else{
+        int maxNum = a;
+        if(a < b){
+            if(c<b){
+                maxNum = b;
+            }else
+                maxNum = c;
+        }
+        if(a < c){
+            if(b<c){
+                maxNum = c;
+            }else
+                maxNum = b;
+        }
+        cout << maxNum * 100;
+            
+    }
+}
