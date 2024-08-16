@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A, a, b, c;
+    cin >> A >> a;
+
+    int p = 0;
+
+    for(int i = 1; i<=a; i++){
+        cin >> b >> c;
+        p = b*c + p;
+    }
+    if(p==A){
+        cout << "Yes";
+    }else{
+        cout << "No";
+    }
+}
