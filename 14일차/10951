@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int A, B;
+
+    while(scanf("%d %d", &A, &B) != EOF){
+        if(A == EOF) break; 
+        cout << A+B << "\n";
+    }
+    return 0;
+} 
