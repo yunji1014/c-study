@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, M, arr[100] = {0, };
+    int i, j;
+    scanf("%d %d", &N, &M);
+
+    for(int I = 0; I < N; I++){
+        arr[I] = I+1;
+    }
+
+    int x = 0;
+    for(int J = 0; J<M; J++){
+        scanf("%d %d", &i, &j);
+        x = arr[i-1];
+        arr[i-1] = arr[j-1];
+        arr[j-1] = x;
+    }
+
+    for(int K = 0; K<N; K++){
+        cout << arr[K] << " ";
+    }
+    return 0;
+}
