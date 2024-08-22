@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float arr[1000]={0, };;
+    float Q;
+    int a;
+    float Max = -1000.0;
+
+    scanf("%d", &a);
+
+    for(int i=0; i<a; i++){
+        cin >> arr[i];
+    }
+
+    for(int i=0; i<a; i++){
+        if(arr[i]>Max){
+            Max = arr[i];
+        }
+    }
+
+    for(int i = 0; i<a; i++){
+        Q += (arr[i]/Max)*100;
+    }
+    float B = Q/a;
+    cout.precision(20);
+
+    cout << B << " ";
+}
