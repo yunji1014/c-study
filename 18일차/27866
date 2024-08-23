@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char arr[1000];
+    int a;
+
+    scanf("%s", arr);
+
+    scanf("%d", &a);
+
+    cout << arr[a-1];
+}
