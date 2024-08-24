@@ -1,0 +1,26 @@
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a = 0;
+    string S;
+    getline(cin, S);
+
+    a = 1;
+    for(int i = 0; i <S.length(); i++){
+        if(S[i]==' '){
+            a++;
+       }
+   }
+    if(S[0] == ' '){
+        a--;
+    }
+    if(S[S.length() - 1] == ' '){
+        a--;
+    }
+    
+    cout << a;
+    return 0;
+}
