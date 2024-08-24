@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char S[16];
+    int result = 0;
+    int i = 0;
+    
+    scanf("%s", S);
+
+    while(S[i]){
+        S[i] = S[i] - 'A';
+        if(S[i]<15){
+            result = result + 3 + S[i]/3;
+        }else if(S[i]<19){
+            result+=8;
+        }else if(S[i]<22){
+            result+=9;
+        }else if(S[i]<26){
+            result+=10;
+        }
+        i++;
+    }
+
+    printf("%d", result);
+
+    return 0;
+}
