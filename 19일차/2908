@@ -1,0 +1,23 @@
+#include <vector>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string S;
+    string D;
+    cin >> S >> D;
+    reverse(S.begin(), S.end());
+    reverse(D.begin(), D.end());
+
+    for(int  i = 0; i<3; i++){
+        if(S > D){
+            cout << S[i];
+        }
+        else{
+            cout << D[i];
+        }
+    }
+    return 0;
+}
