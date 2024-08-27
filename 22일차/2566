@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a[9][9];
+    int MaxIndex[2];
+    int Max = -1;
+
+    for(int i=0; i<9; i++){
+        for(int j=0; j<9;j++){
+            cin >> a[i][j];
+        }
+        
+    }
+    for(int i=0; i<9; i++){
+        for(int j=0; j<9; j++){
+            if(a[i][j]>Max){
+                Max = a[i][j];
+                MaxIndex[0] = i+1;
+                MaxIndex[1] = j+1;
+            }
+        }
+    }
+    cout << Max << "\n";
+    cout << MaxIndex[0] << " " << MaxIndex[1];
+    return 0;
+}
