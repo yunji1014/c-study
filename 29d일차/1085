@@ -1,0 +1,17 @@
+#include <iostream>
+#include <algorithm>
+#include <array>
+using namespace std;
+
+int main() {
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    
+    std::array<int, 4> arr = {a, b, c-a, d-b};
+
+    int min = *std::min_element(arr.begin(), arr.end());
+
+    std::cout << min << std::endl;
+    return 0;
+    
+}
