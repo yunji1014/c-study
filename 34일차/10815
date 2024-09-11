@@ -1,0 +1,74 @@
+# include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <string>
+#include <cmath>
+#include <deque>
+
+using namespace std;
+
+bool BinarySearch(vector<int>& v, int value,  int min, int max) {
+
+	if (max < min) {
+		return false;
+	}
+
+	int mid = (max + min) / 2;
+
+	if (v[mid] == value) {
+		return true;
+	}
+
+	else if (v[mid] > value) {
+		return BinarySearch(v, value, min, mid-1);
+	}
+
+	else {
+		return BinarySearch(v, value, mid+1, max);
+	}
+
+
+}
+// 그냥 이진탐색입니다
+
+int main() {
+
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+    // 빠른 입출력도 해두었습니다
+    
+	int n,m;
+
+	cin >> n;
+	vector<int>v(n);
+	
+	for (int i = 0; i < n; i++) {
+		cin >> v[i];
+	}
+	// 상근이 가진 카드 입력받기
+
+	cin >> m;
+	vector<int> check(m);
+
+	for (int i = 0; i < m; i++) {
+		cin >> check[i];
+	}
+    // 원래 카드뭉치 입력받기
+    
+	sort(v.begin(), v.end());
+    // 상근이 카드 정렬하기
+
+	for (int i : check) {
+		if (BinarySearch(v, i, 0, v.size() - 1)) cout << 1 << " ";
+		else cout << 0 << " ";
+	}
+    // 원래 카드뭉치에서 하나씩 뽑아 상근이가 가진 카드인지 이분탐색으로 확인
+
+
+
+	
+	return 0;
+	
+}
