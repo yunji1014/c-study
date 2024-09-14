@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long a;
+    cin >> a;
+    long sum=0;
+
+    for(long i = 2; i<=a-1; i++){
+        sum+=(a-i)*(a-i+1)/2;
+    }
+    cout << sum << "\n";
+    cout << 3;
+    return 0;
+}
