@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a;
+    cin >> a;
+
+    int min = 5000;
+
+    for(int i=0; i*5<=a; i++){
+        for(int j=0; j*3<=a; j++){
+            if(a==(i*5+j*3)){
+                if(min > i+j){
+                    min = i+j;
+                }
+            }
+        }
+    }
+    
+    if(min==5000){
+        cout << -1;
+    }else{
+        cout << min;
+    }
+    
+    return 0;
+}
