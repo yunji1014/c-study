@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int T, A, B; 
+    int result = 1;
+    int number = 2;
+    cin >> T;
+    for(int i = 0; i < T; ++i)
+    {
+        cin >> A >> B;
+        while (1)
+        {
+            if (A < number || B < number)
+            {
+                result = result * A * B;
+                cout << result << "\n";
+                result = 1;
+                number = 2;
+                break;
+            }
+            if (A % number == 0 && B % number == 0)
+            {
+                result = result * number;
+                A = A / number;
+                B = B / number;
+            }
+            else
+            {
+                number = number + 1;
+            }
+        }
+    }
+    return 0;
+} 
