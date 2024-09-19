@@ -1,0 +1,26 @@
+ #include<iostream>
+using namespace std;
+
+int main() {
+    long long int a, b;
+    cin >> a >> b;
+
+    // 입력 값 저장
+    long long int x = a, y = b;
+
+    // 유클리드 호제법으로 최대공약수(GCD) 구하기
+    while (y != 0) {
+        long long int temp = y;
+        y = x % y;
+        x = temp;
+    }
+    long long int gcd = x;
+
+    // 최소공배수(LCM) 계산: LCM(a, b) = (a * b) / GCD(a, b)
+    long long int lcm = (a * b) / gcd;
+
+    // 결과 출력
+    cout << lcm;
+
+    return 0;
+}
