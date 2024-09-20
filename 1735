@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    long long int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    int A = a*d+c*b;
+    int B = b*d;
+
+    long long int x = A, y = B;
+    while (y != 0) {
+        long long int temp = y;
+        y = x % y;
+        x = temp;
+    }
+
+    A = A/x;
+    B = B/x;
+    cout << A << " " << B;
+    return 0;
+} 
