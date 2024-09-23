@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath> // sqrt를 사용하기 위해 추가
+using namespace std;
+
+// 소수 판별 함수
+bool isPrime(int n) {
+    if (n <= 1) return false; // 1 이하는 소수가 아님
+    if (n == 2) return true;  // 2는 소수
+    if (n % 2 == 0) return false; // 2 이상의 짝수는 소수가 아님
+    for (int i = 3; i <= sqrt(n); i += 2) { // 홀수들만 체크
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int M, N;
+    cin >> M >> N;
+
+    // M 이상 N 이하의 수에 대해 소수 여부 확인
+    for (int i = M; i <= N; i++) {
+        if (isPrime(i)) {
+            cout << i << endl; // 소수일 경우 출력
+        }
+    }
+
+    return 0;
+} 
