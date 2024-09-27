@@ -1,0 +1,28 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    cin.tie(NULL);
+    ios_base::sync_with_stdio(false);
+    
+    long long int a, b;
+    int c = 0;
+    cin >> a;
+    stack<int> stack;
+    for(int i = 0; i<a; i++){
+        cin >> b;
+        if(b == 0){
+            stack.pop();
+        }else{
+            stack.push(b);
+        }
+    }
+    while (!stack.empty()) {
+        c += stack.top();
+        stack.pop();
+    }
+    cout << c;
+    
+    return 0;
+}
