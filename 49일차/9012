@@ -1,0 +1,41 @@
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;  // 테스트 케이스 개수 입력
+    cin.ignore();  // 개행 문자 무시
+
+    for (int i = 0; i < n; i++) {
+        string input;
+        getline(cin, input);  // 괄호 문자열 입력
+
+        stack<char> s;
+        bool isValid = true;
+
+        // 입력된 문자열에서 괄호 처리
+        for (char ch : input) {
+            if (ch == '(') {
+                s.push(ch);  // 여는 괄호는 스택에 넣음
+            } else if (ch == ')') {
+                if (!s.empty()) {
+                    s.pop();  // 닫는 괄호가 나오면 스택에서 여는 괄호를 제거
+                } else {
+                    isValid = false;  // 스택이 비어 있는데 닫는 괄호가 나오면 잘못된 문자열
+                    break;
+                }
+            }
+        }
+
+        // 스택이 비어있고 유효하다면 올바른 괄호 문자열
+        if (isValid && s.empty()) {
+            cout << "YES" << "\n";
+        } else {
+            cout << "NO" << "\n";
+        }
+    }
+
+    return 0;
+}
