@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int a, b, c;
+    cin >> a >> b >> c;
+    int d = a * b * c;
+    string A = to_string(d);
+    
+    // B 배열 초기화
+    int B[10] = {0}; 
+
+    for (int i = 0; i < A.size(); i++) {
+        // A[i]를 '0'의 ASCII 값(48)을 빼서 인덱스를 찾음
+        int index = A[i] - '0'; 
+        if (index >= 0 && index < 10) { // 인덱스가 0~9 사이인지 확인
+            B[index]++;
+        }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        cout << B[i] << "\n"; // 각 숫자의 빈도 출력
+    }
+    return 0;
+}
