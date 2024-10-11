@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a;
+    int count = a;
+    for(int i = 0; i<a; i++){
+        cin >> b;
+        if(b<=1){
+            count--;
+        }
+        for(int j=2; j<b; j++){
+                if(b%j==0){
+                    count--;
+                    break;
+                }
+            }
+    }
+    cout << count;
+    return 0;
+}
