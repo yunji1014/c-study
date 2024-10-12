@@ -1,0 +1,111 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
+int N, M;
+int lab[8][8];  // 연구소의 지도
+int temp[8][8]; // 벽을 세우고 바이러스가 퍼진 후의 임시 지도
+int result = 0; // 안전 영역의 최대 크기
+
+// 상하좌우 이동을 위한 배열
+int dx[] = { -1, 1, 0, 0 };
+int dy[] = { 0, 0, -1, 1 };
+
+// 바이러스 퍼뜨리기 (BFS)
+void spreadVirus() {
+    int spreadLab[8][8];
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            spreadLab[i][j] = temp[i][j];
+        }
+    }
+
+    queue<pair<int, int>> q;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (spreadLab[i][j] == 2) { // 바이러스인 경우 큐에 추가
+                q.push(make_pair(i, j));
+            }
+        }
+    }
+
+    while (!q.empty()) {
+        int x = q.front().first;
+        int y = q.front().second;
+        q.pop();
+
+        // 상하좌우로 바이러스 퍼뜨리기
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            if (nx >= 0 && nx < N && ny >= 0 && ny < M) {
+                if (spreadLab[nx][ny] == 0) { // 빈 공간이면 바이러스 퍼뜨림
+                    spreadLab[nx][ny] = 2;
+                    q.push(make_pair(nx, ny));
+                }
+            }
+        }
+    }
+
+    // 안전 영역 계산
+    int safeCount = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (spreadLab[i][j] == 0) {
+                safeCount++;
+            }
+        }
+    }
+
+    // 최댓값 갱신
+    result = max(result, safeCount);
+}
+
+// 벽 세우기 (백트래킹)
+void buildWall(int count) {
+    if (count == 3) {
+        // 벽을 다 세운 경우 바이러스 퍼뜨리기
+        spreadVirus();
+        return;
+    }
+
+    // 빈 공간에 벽 세우기
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (temp[i][j] == 0) { // 빈 공간이면 벽 세우기
+                temp[i][j] = 1;
+                buildWall(count + 1);
+                temp[i][j] = 0; // 다시 원상태로 복구 (백트래킹)
+            }
+        }
+    }
+}
+
+int main() {
+    cin >> N >> M;
+
+    // 연구소 지도 입력
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            cin >> lab[i][j];
+        }
+    }
+
+    // 모든 경우의 수에 대해 벽 세우기
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            temp[i][j] = lab[i][j];  // 초기 연구소 상태 복사
+        }
+    }
+
+    buildWall(0);
+
+    // 결과 출력
+    cout << result << "\n";
+
+    return 0;
+}
