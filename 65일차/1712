@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+int main()
+{
+
+  int a, b, c;
+  scanf("%d %d %d", &a, &b, &c);
+  int d;
+ 
+ if(b > c || b == c )
+ {
+   printf("%d", -1);
+ }
+ else
+ {
+   d = a / (c - b);
+   printf("%d", d+1);
+ }
+ 
+}
