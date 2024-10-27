@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, c, d, f;
+    cin >> a;
+    int b = a;
+    int N = 0;
+    do{
+        N++;
+        c = b/10;
+        d = b%10;
+        f = (c+d)%10;
+
+        b = d*10 + f;
+    }while(a!=b);
+    cout << N;
+    return 0;
+}
