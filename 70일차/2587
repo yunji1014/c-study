@@ -1,0 +1,26 @@
+#include <iostream>
+#include <algorithm> // for std::sort
+using namespace std;
+
+int main() {
+    int a[5];
+    int sum = 0;
+
+    // 입력받기
+    for(int i = 0; i < 5; i++) {
+        cin >> a[i];
+        sum += a[i];
+    }
+
+    // 평균 계산
+    double average = sum / 5.0;
+
+    // 중앙값 계산
+    sort(a, a + 5); // 배열을 정렬
+    int median = a[2]; // 중앙값은 정렬된 배열의 중간 요소
+
+    // 결과 출력
+    cout << average << "\n" << median << "\n";
+
+    return 0;
+}
