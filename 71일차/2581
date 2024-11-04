@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+    int count = 0, c = 0;
+    int d = 10001;
+    for(int i = a; i<=b; i++){
+        for(int j=2; j<i; j++){
+            if(i%j==0){
+                c++;
+                break;
+            }
+        }
+
+        if(c==0 && i!=1){
+            count += i;
+            if(i<d){
+                d = i;
+            }
+        }
+
+        c = 0;
+    }
+
+    if(count == 0){
+        cout << -1;
+    }else{
+        cout << count << "\n" << d;
+    }
+    return 0;
+}
