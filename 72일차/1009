@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+// 빠른 거듭제곱을 이용한 모듈러 연산 함수
+int mod_pow(int base, int exponent, int mod) {
+    int result = 1;
+    base = base % mod;  // base를 mod로 나눈 초기 값
+    while (exponent > 0) {
+        if (exponent % 2 == 1) {  // 지수가 홀수인 경우
+            result = (result * base) % mod;
+        }
+        exponent = exponent >> 1;  // 지수를 절반으로 줄임
+        base = (base * base) % mod;  // base를 제곱하여 계속 모듈러 연산
+    }
+    return result;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    
+    while (T--) {
+        int a, b;
+        cin >> a >> b;
+        
+        // (a^b) % 10을 계산하여 마지막 데이터를 처리할 컴퓨터 번호 결정
+        int last_computer = mod_pow(a, b, 10);
+        
+        // 컴퓨터 번호는 1~10이므로, 0일 경우 10번째 컴퓨터로 조정
+        if (last_computer == 0) last_computer = 10;
+        
+        cout << last_computer << endl;
+    }
+    
+    return 0;
+}
